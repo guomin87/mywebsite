@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAGYL Multilingual</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f9f9f9; color: #333; }
+    header { background: #004080; color: #fff; padding: 0; }
+    header .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; }
+    header h1 { font-size: 1.5em; margin: 0; }
+    header img { height: 60px; margin-right: 15px; }
+    nav ul { list-style: none; padding: 15px 30px; margin: 0; display: flex; gap: 20px; background: #0066cc; }
+    nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
+    nav ul li a:hover { text-decoration: underline; }
+    section { padding: 40px; background: #fff; margin: 20px auto; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    footer { background: #004080; color: #fff; text-align: center; padding: 20px; }
+    h2 { color: #004080; }
+    button { margin-left: 8px; padding: 6px 12px; border: none; background-color: white; color: #004080; font-weight: bold; cursor: pointer; border-radius: 4px; }
+    button:hover { background-color: #e0e0e0; }    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Swiss Academy for Global Youth Leaders</h1>
+      <div>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('de')">DE</button>
+        <button onclick="setLanguage('zh')">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul id="nav-menu"></ul>
+  </nav>
+
+  <div id="content"></div>
+ 
+  <footer>
+    <p>&copy; 2025 Swiss Academy for Global Youth Leaders. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const contentData = {
+      en: {
+        menu: {
+          home: "Home",
+          mission: "Our Mission",
+          about: "About",
+          programs: "Programs",
+          partners: "Partners",
+          vision: "Join Our Vision",
+          contact: "Contact"
+        },
+        sections: {
+          mission: {
+            title: "Our Mission",
+            content: `
+              <ul>
+                <li>Organize high-quality international study tours and exchange programs</li>
+                <li>Promote leadership, innovation, and intercultural dialogue through workshops, seminars, and camps</li>
+                <li>Foster mutual understanding between Swiss and Chinese youth through education and cultural experiences</li>
+                <li>Collaborate with educational institutions, companies, and public organizations in Switzerland and abroad</li>
+              </ul>`
+          },
+          about: {
+            title: "About the Association",
+            content: `The Swiss Academy for Global Youth Leaders (SAGYL) is a non-profit organization based in Switzerland, dedicated to fostering global leadership, cross-cultural understanding, and innovative thinking among youth. We build bridges between Chinese and Swiss youth through study programs, cultural exchange, and leadership development.`
+          },
+          programs: {
+            title: "Our Programs",
+            content: `<ul><li>Summer and Winter Study Camps in Switzerland</li><li>STEAM and Innovation Workshops</li><li>School Visits and Campus Life Experience</li><li>Company Tours and Leadership Seminars</li><li>Cultural Exchange Forums</li></ul>`
+          },
+          partners: {
+            title: "Our Partners",
+            content: `We collaborate with Swiss universities, high schools, innovation hubs, and cultural institutions.`
+          },
+          vision: {
+            title: "Join Our Vision",
+            content: `We invite students, parents, schools, and partners to join us in building meaningful learning journeys across borders. Together, we prepare the leaders of tomorrow with empathy, vision, and responsibility.`
+          },
+          contact: {
+            title: "Contact",
+            content: `<p>Email: info@sagyl.org</p><p>Location: Switzerland</p><p>LinkedIn: Swiss Academy for Global Youth Leaders</p>`
+          }
+        }
+      },
+      de: {
+        menu: {
+          home: "Startseite",
+          mission: "Unsere Mission",
+          about: "Über uns",
+          programs: "Programme",
+          partners: "Partner",
+          vision: "Unsere Vision",
+          contact: "Kontakt"
+        },
+        sections: {
+          mission: {
+            title: "Unsere Mission",
+            content: `<ul><li>Organisation hochwertiger internationaler Studienreisen und Austauschprogramme</li><li>Förderung von Führung, Innovation und interkulturellem Dialog durch Workshops, Seminare und Camps</li><li>Stärkung des gegenseitigen Verständnisses zwischen Schweizer und chinesischen Jugendlichen durch Bildungs- und Kulturerlebnisse</li><li>Zusammenarbeit mit Bildungseinrichtungen, Unternehmen und öffentlichen Organisationen in der Schweiz und im Ausland</li></ul>`
+          },
+          about: {
+            title: "Über den Verein",
+            content: `Die Swiss Academy for Global Youth Leaders (SAGYL) ist eine gemeinnützige Organisation mit Sitz in der Schweiz. Sie fördert globale Führungsqualitäten, interkulturelles Verständnis und innovatives Denken unter Jugendlichen und baut Brücken zwischen chinesischen und Schweizer Jugendlichen durch Studienprogramme, Kulturaustausch und Führungsentwicklung.`
+          },
+          programs: {
+            title: "Unsere Programme",
+            content: `<ul><li>Sommer- und Winterstudiencamps in der Schweiz</li><li>STEAM- und Innovations-Workshops</li><li>Schulbesuche und Campusleben-Erfahrung</li><li>Unternehmensführungen und Führungsseminare</li><li>Foren für kulturellen Austausch</li></ul>`
+          },
+          partners: {
+            title: "Unsere Partner",
+            content: `Wir arbeiten mit Schweizer Universitäten, Gymnasien, Innovationszentren und kulturellen Institutionen zusammen.`
+          },
+          vision: {
+            title: "Unsere Vision",
+            content: `Wir laden Schüler, Eltern, Schulen und Partner ein, gemeinsam sinnvolle Bildungsreisen über Grenzen hinweg zu gestalten. Gemeinsam bereiten wir die Führungskräfte von morgen mit Empathie, Vision und Verantwortung vor.`
+          },
+          contact: {
+            title: "Kontakt",
+            content: `<p>Email: info@sagyl.org</p><p>Ort: Schweiz</p><p>LinkedIn: Swiss Academy for Global Youth Leaders</p>`
+          }
+        }
+      },
+      zh: {
+        menu: {
+          home: "首页",
+          mission: "我们的使命",
+          about: "关于协会",
+          programs: "项目",
+          partners: "合作伙伴",
+          vision: "我们的愿景",
+          contact: "联系方式"
+        },
+        sections: {
+          mission: {
+            title: "我们的使命",
+            content: `<ul><li>组织高质量的国际游学和交流项目</li><li>通过工作坊、研讨会和营会，促进领导力、创新能力和跨文化对话</li><li>通过教育与文化交流，增进中瑞青少年的相互理解</li><li>与瑞士及国际的教育机构、企业和公共组织合作</li></ul>`
+          },
+          about: {
+            title: "关于协会",
+            content: `瑞士青少年国际领袖协会（SAGYL）是注册于瑞士的非营利组织，致力于培养青少年的全球领导力、跨文化理解和创新思维。我们通过学习项目、文化交流和领导力发展，搭建中瑞青少年之间的桥梁。`
+          },
+          programs: {
+            title: "我们的项目",
+            content: `<ul><li>瑞士夏冬令营</li><li>STEAM与创新工作坊</li><li>学校访问与校园体验</li><li>企业参访与领导力讲座</li><li>文化交流论坛</li></ul>`
+          },
+          partners: {
+            title: "合作伙伴",
+            content: `我们与瑞士的大学、中学、创新中心和文化机构开展合作。`
+          },
+          vision: {
+            title: "我们的愿景",
+            content: `我们欢迎学生、家长、学校和合作伙伴共同参与，跨越国界，打造有意义的学习旅程。我们共同以同理心、远见和责任感，培育明日的领导者。`
+          },
+          contact: {
+            title: "联系方式",
+            content: `<p>Email: info@sagyl.org</p><p>地址：瑞士</p><p>LinkedIn：Swiss Academy for Global Youth Leaders</p>`
+          }
+        }
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      renderMenu();
+      renderContent();
+    }
+
+    function renderMenu() {
+      const nav = document.getElementById('nav-menu');
+      nav.innerHTML = '';
+      for (let key in contentData[currentLang].menu) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.textContent = contentData[currentLang].menu[key];
+        a.href = `#${key}`;
+        li.appendChild(a);
+        nav.appendChild(li);
+      }
+    }
+
+    function renderContent() {
+      const container = document.getElementById('content');
+      container.innerHTML = '';
+      for (let key in contentData[currentLang].sections) {
+        const section = contentData[currentLang].sections[key];
+        const sec = document.createElement('section');
+        sec.id = key;
+        sec.innerHTML = `<h2>${section.title}</h2><div>${section.content}</div>`;
+        container.appendChild(sec);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMenu();
+      renderContent();
+    });
+  </script>
+
+
+</body>
+</html>
